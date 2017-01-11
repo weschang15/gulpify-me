@@ -19,4 +19,24 @@ module.exports = ( gulp, $ ) => {
             .pipe(gulp.dest(project))
             .pipe( bs.stream() );
     });
+
+    gulp.task( 'styls:sass', () => {
+        return gulp.src( styls.src )
+            .pipe($.plumber())
+            .pipe($.sass({ outputStyle: 'expanded'}).on('error', $.sass.logError))
+            .pipe($.autoprefixer({ browsers: ['last 4 versions'], cascade: false }))
+            .pipe($.size({ showFiles: true }))
+            .pipe(gulp.dest(project))
+            .pipe( bs.stream() );
+    });
+
+    gulp.task( 'styls:clean', () => {
+        return gulp.src( 'style.css' )
+            .pipe($.cleanCss())
+            .pipe($.size({ showFiles: true }))
+            .pipe($.rename({
+                suffix: min
+            }))
+            .pipe(gulp.dest(styls.dest))
+    });
 };

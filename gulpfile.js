@@ -9,3 +9,4 @@ require( './tasks/scripts'  )( gulp, $ );
 require( './tasks/styles'   )( gulp, $ );
 require( './tasks/server'   )( gulp );
 require( './tasks/watch'    )( gulp );
+require( './tasks/default'  )( gulp );
