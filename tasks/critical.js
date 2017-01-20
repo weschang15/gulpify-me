@@ -29,6 +29,9 @@ module.exports = ( gulp, $ ) => {
                     if (err) {
                         reject(err);
                     } else {
+                        if (!fs.existsSync(css.dest)) {
+                            fs.mkdirSync(css.dest);
+                        }
                         fs.writeFileSync( css.dest + page.name, data );
                         setTimeout(function () {
                             resolve();

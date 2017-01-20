@@ -1,27 +1,29 @@
+const dest = 'assets';
+const src = 'src';
+
 module.exports = {
     paths: {
 
         css: {
-            src: ['assets/css/critical/*.css', '!assets/css/critical/*.min.*'],
-            dest: 'assets/css/critical/'
+            src: [`${dest}/css/critical/*.css`, `!${dest}/css/critical/*.min.*`],
+            dest: `${dest}/css/critical/`
         },
 
         project: './',
 
         styls: {
-            all: 'styls/**/*.styl',
-            dest: 'assets/css',
-            src: 'styls/style.styl'
+            dest: `${dest}/css`,
+            src: `${src}/sass/**/*.sass`
         },
 
         js: {
-            src: 'src/js/scripts.js',
-            dest: 'assets/js'
+            src: [`${src}/js/customizer.js`, `${src}/js/scripts.js`],
+            dest: `${dest}/js`
         },
 
         images: {
-            src: 'src/img/**',
-            dest: 'assets/img'
+            src: `${src}/imgs/**`,
+            dest: `${dest}/imgs`
         },
 
         php: {

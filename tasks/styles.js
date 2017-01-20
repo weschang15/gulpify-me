@@ -6,25 +6,9 @@ const { min } = config.names;
 module.exports = ( gulp, $ ) => {
     gulp.task( 'styls', () => {
         return gulp.src( styls.src )
-            .pipe($.stylus({
-                use: [typographic(), rupture({ implicit: false })],
-                compress: true
-            }))
-            .pipe($.autoprefixer({
-                browsers: ['last 2 versions'],
-                cascade: false
-            }))
-            .pipe($.cleanCss())
-            .pipe($.size({ showFiles: true }))
-            .pipe(gulp.dest(project))
-            .pipe( bs.stream() );
-    });
-
-    gulp.task( 'styls:sass', () => {
-        return gulp.src( styls.src )
             .pipe($.plumber())
             .pipe($.sass({ outputStyle: 'expanded'}).on('error', $.sass.logError))
-            .pipe($.autoprefixer({ browsers: ['last 4 versions'], cascade: false }))
+            .pipe($.autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
             .pipe($.size({ showFiles: true }))
             .pipe(gulp.dest(project))
             .pipe( bs.stream() );
